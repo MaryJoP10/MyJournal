@@ -1,0 +1,19 @@
+2026-09-14 21:32:39.844: [INFO] CurrentProfilePath: D:\Documents\Repository\MyJournal\MyJournal\bin\Debug\net10.0-windows10.0.19041.0\win-x64\MyJournal.exe.WebView2\EBWebView\Default
+2026-09-14 21:32:39.844: [INFO] Profiles total count: 1
+2026-09-14 21:32:39.844: [INFO] Profile: name=Perfil 1 path=D:\Documents\Repository\MyJournal\MyJournal\bin\Debug\net10.0-windows10.0.19041.0\win-x64\MyJournal.exe.WebView2\EBWebView\Default lastActive=null
+2026-09-14 21:32:39.844: [INFO] LastUsedProfileDir: D:\Documents\Repository\MyJournal\MyJournal\bin\Debug\net10.0-windows10.0.19041.0\win-x64\MyJournal.exe.WebView2\EBWebView\Default
+2026-09-14 21:32:39.844: [INFO] OnDoneLoading sync enabled: 0
+2026-09-14 21:32:39.844: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-09-14 21:32:39.844: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-09-14 21:32:39.844: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-09-14 21:33:11.510: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-09-14 22:02:10.555: [INFO] CurrentProfilePath: D:\Documents\Repository\MyJournal\MyJournal\bin\Debug\net10.0-windows10.0.19041.0\win-x64\MyJournal.exe.WebView2\EBWebView\Default
+2026-09-14 22:02:10.555: [INFO] Profiles total count: 1
+2026-09-14 22:02:10.555: [INFO] Profile: name=Perfil 1 path=D:\Documents\Repository\MyJournal\MyJournal\bin\Debug\net10.0-windows10.0.19041.0\win-x64\MyJournal.exe.WebView2\EBWebView\Default lastActive=2026-09-14T21:32:40.123Z
+2026-09-14 22:02:10.555: [INFO] LastUsedProfileDir: D:\Documents\Repository\MyJournal\MyJournal\bin\Debug\net10.0-windows10.0.19041.0\win-x64\MyJournal.exe.WebView2\EBWebView\Default
+2026-09-14 22:02:10.555: [INFO] MostRecentlyActiveProfile: name=Perfil 1 path=D:\Documents\Repository\MyJournal\MyJournal\bin\Debug\net10.0-windows10.0.19041.0\win-x64\MyJournal.exe.WebView2\EBWebView\Default lastActive=2026-09-14T21:32:40.123Z
+2026-09-14 22:02:10.555: [INFO] OnDoneLoading sync enabled: 0
+2026-09-14 22:02:10.555: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-09-14 22:02:10.555: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-09-14 22:02:10.555: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-09-14 22:02:13.259: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1

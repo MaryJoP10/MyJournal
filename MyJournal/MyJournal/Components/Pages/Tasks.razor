@@ -1,0 +1,28 @@
+@page "/tasks"
+@using MyJournal.Core.Entities
+@inject MyJournal.Services.Services.ITaskService TaskService
+
+<h3>Tareas</h3>
+
+@if (tasks is null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <ul>
+        @foreach (var t in tasks)
+        {
+            <li>@t.Title - @t.State</li>
+        }
+    </ul>
+}
+
+@code {
+    private IEnumerable<TaskItem>? tasks;
+
+    protected override async Task OnInitializedAsync()
+    {
+        tasks = await TaskService.GetAllAsync();
+    }
+}

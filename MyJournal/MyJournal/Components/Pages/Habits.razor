@@ -1,0 +1,28 @@
+@page "/habits"
+@using MyJournal.Core.Entities
+@inject MyJournal.Services.Services.IHabitService HabitService
+
+<h3>Hábitos</h3>
+
+@if (habits is null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <ul>
+        @foreach (var h in habits)
+        {
+            <li>@h.Title (@(h.IsArchived ? "Archivado" : "Activo"))</li>
+        }
+    </ul>
+}
+
+@code {
+    private IEnumerable<Habit>? habits;
+
+    protected override async Task OnInitializedAsync()
+    {
+        habits = await HabitService.GetAllAsync();
+    }
+}

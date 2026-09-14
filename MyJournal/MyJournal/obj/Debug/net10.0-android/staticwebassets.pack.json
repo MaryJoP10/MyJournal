@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\maryj\\.nuget\\packages\\microsoft.aspnetcore.components.webview\\10.0.0\\staticwebassets\\blazor.modules.json",
+      "PackagePath": "staticwebassets\\_framework\\blazor.modules.json"
+    },
+    {
+      "Id": "C:\\Users\\maryj\\.nuget\\packages\\microsoft.aspnetcore.components.webview\\10.0.0\\staticwebassets\\blazor.webview.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webview.js"
+    },
+    {
+      "Id": "D:\\Documents\\Repository\\MyJournal\\MyJournal\\MyJournal\\obj\\Debug\\net10.0-android\\scopedcss\\bundle\\MyJournal.styles.css",
+      "PackagePath": "staticwebassets\\MyJournal.styles.css"
+    },
+    {
+      "Id": "D:\\Documents\\Repository\\MyJournal\\MyJournal\\MyJournal\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\Documents\\Repository\\MyJournal\\MyJournal\\MyJournal\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\Documents\\Repository\\MyJournal\\MyJournal\\MyJournal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Documents\\Repository\\MyJournal\\MyJournal\\MyJournal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "obj\\Debug\\net10.0-android\\staticwebassets\\msbuild.MyJournal.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net10.0-android\\staticwebassets\\msbuild.MyJournal.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net10.0-android\\staticwebassets\\msbuild.build.MyJournal.props",
+      "PackagePath": "build\\MyJournal.props"
+    },
+    {
+      "Id": "obj\\Debug\\net10.0-android\\staticwebassets\\msbuild.buildMultiTargeting.MyJournal.props",
+      "PackagePath": "buildMultiTargeting\\MyJournal.props"
+    },
+    {
+      "Id": "obj\\Debug\\net10.0-android\\staticwebassets\\msbuild.buildTransitive.MyJournal.props",
+      "PackagePath": "buildTransitive\\MyJournal.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
