@@ -1,0 +1,53 @@
+@page "/journal"
+@using MyJournal.Core.Entities
+@inject MyJournal.Services.Services.IJournalService JournalService
+
+<h3>Journal</h3>
+
+<div class="mb-3">
+    <textarea class="form-control" @bind="newContent" rows="4" placeholder="Escribe una entrada rápida..."></textarea>
+    <div class="mt-2">
+        <button class="btn btn-primary btn-sm" @onclick="AddEntry">Añadir entrada</button>
+    </div>
+</div>
+
+@if (entries == null)
+{
+    <p>Cargando...</p>
+}
+else if (!entries.Any())
+{
+    <p>No hay entradas todavía.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var e in entries.OrderByDescending(x => x.Date))
+        {
+            <li class="list-group-item">
+                <div><small class="text-muted">@e.Date.ToString("g")</small></div>
+                <div>@e.Content</div>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private IEnumerable<JournalEntry>? entries;
+    private string newContent = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        entries = await JournalService.GetAllAsync();
+    }
+
+    private async Task AddEntry()
+    {
+        if (string.IsNullOrWhiteSpace(newContent)) return;
+
+        var entry = new JournalEntry { Content = newContent, Date = DateTime.UtcNow };
+        await JournalService.AddAsync(entry);
+        newContent = string.Empty;
+        entries = await JournalService.GetAllAsync();
+    }
+}

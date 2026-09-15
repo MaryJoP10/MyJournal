@@ -66,6 +66,8 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 
+    <!-- Removed .csproj proxy entries -->
+
     <ItemGroup>
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
@@ -73,9 +75,24 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\MyJournal.Core\MyJournal.Core.csproj" />
-        <ProjectReference Include="..\..\MyJournal.Infrastructure\MyJournal.Infrastructure.csproj" />
-        <ProjectReference Include="..\..\MyJournal.Services\MyJournal.Services.csproj" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.12" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.12" />
+
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.12">
+        	<PrivateAssets>all</PrivateAssets>
+        	<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    	</PackageReference>
+
+    	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.12">
+        	<PrivateAssets>all</PrivateAssets>
+        	<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    	</PackageReference>
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="MyJournal.Tests\UnitTests\" />
+    </ItemGroup>
+
+    <!-- Source files are included implicitly by the SDK; no explicit Compile includes to avoid duplicates -->
 
 </Project>

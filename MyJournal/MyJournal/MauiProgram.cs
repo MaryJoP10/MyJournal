@@ -42,12 +42,21 @@ namespace MyJournal
             try
             {
                 using var scope = app.Services.CreateScope();
+
                 var db = scope.ServiceProvider.GetRequiredService<MyJournalDbContext>();
+
+                db.Database.Migrate();
+
                 DemoDataSeeder.SeedAsync(db).GetAwaiter().GetResult();
             }
-            catch
+            catch (Exception ex)
             {
-                // seeding is non-blocking; in case of error keep running
+#if DEBUG
+                System.Diagnostics.Debug.WriteLine(
+                    $"ERROR inicializando la base de datos: {ex}");
+#endif
+
+                throw;
             }
 
             return app;
