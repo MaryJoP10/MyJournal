@@ -4,12 +4,17 @@
     flex-direction: column;
 }
 
+/* Apply preferred typography for the app shell (falls back if fonts not installed) */
+.page, main, article {
+    font-family: 'Poppins','Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
 main {
     flex: 1;
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(180deg,#32183F 0%, #6A3D9A 70%);
 }
 
 .top-row {

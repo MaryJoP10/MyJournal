@@ -1,0 +1,60 @@
+@inject MyJournal.Services.Services.IHabitService HabitService
+
+<div class="card habits-summary">
+    <h5>Hábitos</h5>
+
+    @if (habits == null)
+    {
+        <div>Cargando...</div>
+    }
+    else if (!habits.Any())
+    {
+        <div class="empty">No tienes hábitos aún. <NavLink href="habits">Crear hábito</NavLink></div>
+    }
+    else
+    {
+        <ul class="habit-list">
+            @foreach (var h in habits.Take(6))
+            {
+                var doneToday = h.Logs.Any(l => l.Date.Date == DateTime.Today && l.Completed);
+                <li class="habit-item">
+                    <button class="toggle" @onclick="() => ToggleHabit(h)">
+                        <span class="checkbox">@(doneToday ? "✓" : "")</span>
+                    </button>
+                    <span class="title">@h.Title</span>
+                </li>
+            }
+        </ul>
+        @if (habits.Count() > 6)
+        {
+            <div class="view-all"><NavLink href="habits">Ver todos</NavLink></div>
+        }
+    }
+</div>
+
+@code {
+    private List<MyJournal.Core.Entities.Habit>? habits;
+
+    protected override async Task OnInitializedAsync()
+    {
+        habits = (await HabitService.GetAllAsync())?.ToList() ?? new();
+    }
+
+    private async Task ToggleHabit(MyJournal.Core.Entities.Habit h)
+    {
+        // Añadir o quitar log simple para hoy
+        var existing = h.Logs.FirstOrDefault(l => l.Date.Date == DateTime.Today);
+        if (existing == null)
+        {
+            h.Logs.Add(new MyJournal.Core.Entities.HabitLog { HabitId = h.Id, Date = DateTime.Now, Completed = true });
+        }
+        else
+        {
+            existing.Completed = !existing.Completed;
+        }
+
+        await HabitService.UpdateAsync(h);
+        await OnInitializedAsync();
+        StateHasChanged();
+    }
+}

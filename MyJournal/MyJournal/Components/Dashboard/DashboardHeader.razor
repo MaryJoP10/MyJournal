@@ -1,0 +1,31 @@
+@using MyJournal.Core.Entities
+@inject MyJournal.Services.Services.ITaskService TaskService
+
+<header class="dashboard-header card">
+    <div class="header-content">
+        <div class="left">
+            <h1 class="greeting">@greeting</h1>
+            <div class="subtitle">@subTitle</div>
+        </div>
+
+        <div class="right">
+            <div class="date">@todayString</div>
+            <div class="small-motif" aria-hidden="true"></div>
+        </div>
+    </div>
+
+    <div class="header-banner" role="img" aria-label="banner decorativo"></div>
+</header>
+
+@code {
+    private string greeting = "¡Buenos días!";
+    private string subTitle = "No tienes que ser perfecta, solo constante.";
+    private string todayString = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        var now = DateTime.Now;
+        todayString = now.ToString("dddd, d MMMM yyyy");
+        greeting = now.Hour < 12 ? "¡Buenos días!" : now.Hour < 18 ? "¡Buenas tardes!" : "¡Buenas noches!";
+    }
+}

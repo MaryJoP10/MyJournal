@@ -91,6 +91,8 @@
 
     <ItemGroup>
       <Folder Include="MyJournal.Tests\UnitTests\" />
+      <Folder Include="wwwroot\js\" />
+      <Folder Include="wwwroot\lib\lucide\" />
     </ItemGroup>
 
     <!-- Source files are included implicitly by the SDK; no explicit Compile includes to avoid duplicates -->

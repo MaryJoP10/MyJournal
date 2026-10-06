@@ -1,0 +1,62 @@
+@inject MyJournal.Services.Services.ITaskService TaskService
+@inject MyJournal.Services.Services.IHabitService HabitService
+
+<div class="card daily-overview">
+    <div class="overview-top">
+        <div class="overview-title">
+            <h3>Resumen del día</h3>
+            <div class="overview-sub">Progreso general y estado</div>
+        </div>
+        <div class="overview-percent">@progress% </div>
+    </div>
+
+    <div class="overview-chips">
+        <div class="chip">
+            <div class="chip-label">Tareas</div>
+            <div class="chip-value">@tasksTotal/@tasksCompleted</div>
+        </div>
+        <div class="chip">
+            <div class="chip-label">Hábitos</div>
+            <div class="chip-value">@habitsCompleted/@habitsTotal</div>
+        </div>
+        <div class="chip">
+            <div class="chip-label">Rutina</div>
+            <div class="chip-value">@routineCompleted/@routineTotal</div>
+        </div>
+    </div>
+
+    <div class="overview-visual" aria-hidden="true">
+        <div class="bar" style="width:@progress%"></div>
+    </div>
+</div>
+
+@code {
+    private int progress = 0;
+    private int tasksTotal = 0;
+    private int tasksCompleted = 0;
+    private int habitsTotal = 0;
+    private int habitsCompleted = 0;
+    private int routineTotal = 0;
+    private int routineCompleted = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var tasks = (await TaskService.GetAllAsync())?.ToList() ?? new();
+        var todaysTasks = tasks.Where(t => t.DueDate?.Date == DateTime.Today || t.DueDate == null).ToList();
+        tasksTotal = todaysTasks.Count;
+        tasksCompleted = todaysTasks.Count(t => t.State == MyJournal.Core.Entities.TaskState.Completed);
+
+        var habits = (await HabitService.GetAllAsync())?.ToList() ?? new();
+        habitsTotal = habits.Count;
+        habitsCompleted = habits.Count(h => h.Logs.Any(l => l.Date.Date == DateTime.Today && l.Completed));
+
+        // No existe entidad Routine; mantener como 0/0 por ahora
+        routineTotal = 0;
+        routineCompleted = 0;
+
+        int totalItems = tasksTotal + habitsTotal + (routineTotal);
+        int completed = tasksCompleted + habitsCompleted + (routineCompleted);
+
+        progress = totalItems == 0 ? 0 : (int)Math.Round((double)completed / totalItems * 100);
+    }
+}

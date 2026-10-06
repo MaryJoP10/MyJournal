@@ -1,0 +1,64 @@
+/* Overrides cargados después de MyJournal.styles.css para forzar
+   que los elementos de la navegación estén en fila (icono a la izquierda,
+   texto a la derecha). Usa !important para garantizar precedencia. */
+.nav-list > .nav-item > .nav-link,
+.nav-list > .nav-item > a.nav-link {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+}
+
+.nav-list .nav-link .label {
+    display: inline-block !important;
+}
+
+/* Ajustes adicionales para imágenes muy grandes */
+.nav-list .nav-link .icon img {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+}
+
+/* Espaciado entre elementos y estilo de hover */
+.nav-list > .nav-item {
+    margin: 0.25rem 0; /* separa las filas de la lista */
+}
+
+.nav-list > .nav-item > .nav-link {
+    padding: 0.5rem 0.75rem !important; /* espacio interno para que no queden tan juntos */
+    border-radius: 6px !important;
+    transition: background-color 150ms ease, color 150ms ease, transform 120ms ease;
+}
+
+.nav-list > .nav-item > .nav-link:hover {
+    background-color: #E63946 !important; /* hover color solicitado */
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+.nav-list > .nav-item > .nav-link:active {
+    transform: translateY(0);
+}
+
+.nav-list > .nav-item > .nav-link .icon img {
+    filter: none !important; /* asegurar que el icono no cambie color inesperadamente */
+}
+
+/* Estado activo: mantener el estilo de hover cuando la ruta está seleccionada */
+.nav-list > .nav-item > .nav-link.active,
+.nav-list > .nav-item > .nav-link[aria-current="page"] {
+    background-color: #E63946 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(230,57,70,0.15);
+}
+
+.nav-list > .nav-item > .nav-link.active .icon img,
+.nav-list > .nav-item > .nav-link[aria-current="page"] .icon img {
+    filter: none !important;
+}
+

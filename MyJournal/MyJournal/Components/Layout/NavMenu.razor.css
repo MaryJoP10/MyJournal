@@ -1,105 +1,169 @@
-.navbar-toggler {
-    appearance: none;
-    cursor: pointer;
-    width: 3.5rem;
-    height: 2.5rem;
-    color: white;
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
+.sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+    padding-bottom: 0;
+    padding-top: 1rem;
+    box-sizing: border-box;
+    background-color: #2b0e2f; /* Solid dark purple requested */
+    color: var(--sidebar-text, #FFF8EF);
 }
 
-.navbar-toggler:checked {
-    background-color: rgba(255, 255, 255, 0.5);
+.brand {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: 0 1rem;
+    margin-bottom: 1rem
 }
 
-.top-row {
-    min-height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+.logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(180deg,#FFF8EF33,#F7E7A333);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700
 }
 
-.navbar-brand {
-    font-size: 1.1rem;
+/* Imagen de logo dentro del contenedor .logo */
+.logo-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.bi {
-    display: inline-block;
-    position: relative;
-    width: 1.25rem;
-    height: 1.25rem;
-    margin-right: 0.75rem;
-    top: -1px;
-    background-size: cover;
+.brand-text {
+    font-weight: 700;
+    font-size: 1.05rem;
+    font-family: 'Poppins','Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial
 }
 
-.bi-house-door-fill-nav-menu {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-house-door-fill' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z'/%3E%3C/svg%3E");
-}
-
-.bi-plus-square-fill-nav-menu {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-plus-square-fill' viewBox='0 0 16 16'%3E%3Cpath d='M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z'/%3E%3C/svg%3E");
-}
-
-.bi-list-nested-nav-menu {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-list-nested' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
-}
-
-.nav-item {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
-}
-
-    .nav-item:first-of-type {
-        padding-top: 1rem;
+    .brand-text .star {
+        color: var(--color-accent,#F7E7A3);
+        font-size: 0.9rem;
+        margin-left: .25rem
     }
-
-    .nav-item:last-of-type {
-        padding-bottom: 1rem;
-    }
-
-    .nav-item ::deep .nav-link {
-        color: #d7d7d7;
-        background: none;
-        border: none;
-        border-radius: 4px;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        line-height: 3rem;
-        width: 100%;
-    }
-
-.nav-item ::deep a.active {
-    background-color: rgba(255,255,255,0.37);
-    color: white;
-}
-
-.nav-item ::deep .nav-link:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-}
 
 .nav-scrollable {
-    display: none;
+    flex: 1;
+    padding: 0 0.25rem 1rem 0.25rem;
+    overflow-y: auto;
+    align-self: stretch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
 }
 
-.navbar-toggler:checked ~ .nav-scrollable {
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list .nav-item {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list .nav-link {
+    /* Forzar disposición horizontal: icono a la izquierda y texto a la derecha */
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px;
+    text-align: left !important;
+    /* Evita que el texto salte debajo del icono en pantallas pequeñas */
+    white-space: nowrap;
+}
+
+/* Regla más específica para evitar que otras hojas (Bootstrap, app.css) sobrescriban
+   la disposición. Usa !important por seguridad cuando hay reglas externas con mayor
+   precedencia. */
+.nav-list > .nav-item > .nav-link,
+.nav-list > .nav-item > a.nav-link {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+}
+
+.nav-list .nav-link .icon {
+    width: 24px;
+    height: 24px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nav-list .nav-link .icon img {
+    width: 24px;
+    height: 24px;
     display: block;
+    object-fit: contain;
 }
 
-@media (min-width: 641px) {
-    .navbar-toggler {
-        display: none;
+.nav-list .nav-link .label {
+    /* Mostrar la etiqueta en línea junto al icono */
+    display: inline-block !important;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+.nav-link.active {
+    box-shadow: 0 6px 18px rgba(221,65,78,0.14)
+}
+
+    .nav-link.active .icon {
+        background: none
     }
 
-    .nav-scrollable {
-        /* Never collapse the sidebar for wide screens */
-        display: block;
+.sidebar-footer {
+    padding: 0;
+    text-align: center;
+    margin-top: auto
+}
+    /* La ilustración ocupa todo el ancho dentro del sidebar y está pegada al fondo */
+    .sidebar-footer .illustration {
+        width: calc(100% + 2rem);
+        margin-left: -1rem;
+        margin-right: -1rem;
+        height: 280px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
 
-        /* Allow sidebar to scroll for tall menus */
-        height: calc(100vh - 3.5rem);
-        overflow-y: auto;
+        .sidebar-footer .illustration .footer-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            object-position: bottom center;
+        }
+
+@media (max-width:640px) {
+    .sidebar-inner {
+        height: auto
     }
 }

@@ -1,0 +1,28 @@
+@inject MyJournal.Services.Services.IJournalService JournalService
+
+<div class="card journal-preview">
+    <h5>Journal</h5>
+
+    @if (entry == null)
+    {
+        <div class="empty">No hay entrada para hoy. <NavLink href="journal">Escribir</NavLink></div>
+    }
+    else
+    {
+        <div class="entry">
+            <div class="entry-date">@entry.Date.ToString("d MMM yyyy")</div>
+            <div class="entry-content">@((entry.Content.Length > 200) ? entry.Content.Substring(0, 200) + "..." : entry.Content)</div>
+            <div class="entry-actions"><NavLink href="journal">Abrir</NavLink></div>
+        </div>
+    }
+</div>
+
+@code {
+    private MyJournal.Core.Entities.JournalEntry? entry;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var all = (await JournalService.GetAllAsync())?.ToList() ?? new();
+        entry = all.FirstOrDefault(e => e.Date.Date == DateTime.Today);
+    }
+}

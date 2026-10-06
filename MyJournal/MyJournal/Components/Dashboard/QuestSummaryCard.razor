@@ -1,0 +1,27 @@
+@using MyJournal.Infrastructure.Data
+@inject MyJournalDbContext Db
+
+<div class="card quest-summary">
+    <h5>Today's Quest</h5>
+    @if (goal == null)
+    {
+        <div class="empty">Sin objetivos activos. Crea un objetivo para desbloquear quests.</div>
+    }
+    else
+    {
+        <div class="quest-content">
+            <div class="quest-title">@goal.Title</div>
+            <div class="quest-progress">@((int)(goal.Progress*100))%</div>
+            <div class="quest-bar"><div class="fill" style="width:@(goal.Progress*100)%"></div></div>
+        </div>
+    }
+</div>
+
+@code {
+    private MyJournal.Core.Entities.Goal? goal;
+
+    protected override void OnInitialized()
+    {
+        goal = Db.Goals.OrderByDescending(g => g.Progress).FirstOrDefault();
+    }
+}

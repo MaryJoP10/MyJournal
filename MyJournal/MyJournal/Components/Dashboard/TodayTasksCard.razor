@@ -1,0 +1,55 @@
+@inject MyJournal.Services.Services.ITaskService TaskService
+
+<div class="card today-tasks">
+    <h5>Hoy - Tareas</h5>
+
+    @if (tasks == null)
+    {
+        <div>Cargando...</div>
+    }
+    else if (!tasks.Any())
+    {
+        <div class="empty">No hay tareas para hoy. <NavLink href="tasks">Agregar tarea</NavLink></div>
+    }
+    else
+    {
+        <ul class="task-list">
+            @foreach (var t in tasks.Take(6))
+            {
+                <li class="task-item">
+                    <input type="checkbox" checked="@IsCompleted(t)" @onchange="() => ToggleCompleted(t)" />
+                    <span class="title">@t.Title</span>
+                    @if (t.Priority > 0)
+                    {
+                        <span class="badge priority">P@t.Priority</span>
+                    }
+                </li>
+            }
+        </ul>
+        @if (tasks.Count() > 6)
+        {
+            <div class="view-all"><NavLink href="tasks">Ver todas</NavLink></div>
+        }
+    }
+</div>
+
+@code {
+    private List<MyJournal.Core.Entities.TaskItem>? tasks;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var all = (await TaskService.GetAllAsync())?.ToList() ?? new();
+        tasks = all.Where(t => t.DueDate?.Date == DateTime.Today || t.DueDate == null).OrderBy(t => t.DueDate).ToList();
+    }
+
+    private bool IsCompleted(MyJournal.Core.Entities.TaskItem t) => t.State == MyJournal.Core.Entities.TaskState.Completed;
+
+    private async Task ToggleCompleted(MyJournal.Core.Entities.TaskItem t)
+    {
+        t.State = IsCompleted(t) ? MyJournal.Core.Entities.TaskState.Pending : MyJournal.Core.Entities.TaskState.Completed;
+        await TaskService.UpdateAsync(t);
+        // refresh view
+        await OnInitializedAsync();
+        StateHasChanged();
+    }
+}

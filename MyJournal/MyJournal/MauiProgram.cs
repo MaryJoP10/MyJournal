@@ -18,6 +18,9 @@ namespace MyJournal
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    // Register preferred UI fonts. Add the corresponding .ttf files to Resources/Fonts.
+                    fonts.AddFont("Poppins-Regular.ttf", "Poppins");
+                    fonts.AddFont("Montserrat-Regular.ttf", "Montserrat");
                 });
 
             builder.Services.AddMauiBlazorWebView();

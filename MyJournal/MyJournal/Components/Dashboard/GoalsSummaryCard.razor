@@ -1,0 +1,36 @@
+@using MyJournal.Infrastructure.Data
+@inject MyJournalDbContext Db
+
+<div class="card goals-summary">
+    <h5>Objetivos</h5>
+
+    @if (goals == null)
+    {
+        <div>Cargando...</div>
+    }
+    else if (!goals.Any())
+    {
+        <div class="empty">No hay objetivos activos. <NavLink href="tasks">Crear objetivo</NavLink></div>
+    }
+    else
+    {
+        <ul class="goals-list">
+            @foreach (var g in goals.Take(2))
+            {
+                <li>
+                    <div class="goal-title">@g.Title</div>
+                    <div class="goal-progress">@((int)(g.Progress * 100))%<div class="goal-bar" style="width:@(g.Progress*100)%"></div></div>
+                </li>
+            }
+        </ul>
+    }
+</div>
+
+@code {
+    private List<MyJournal.Core.Entities.Goal>? goals;
+
+    protected override void OnInitialized()
+    {
+        goals = Db.Goals.ToList();
+    }
+}
